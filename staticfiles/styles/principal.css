@@ -1,0 +1,431 @@
+/* *{
+    border: 1px solid red;
+} */
+
+.custom-navbar {
+    background: rgb(34, 34, 34);
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+}
+
+.custom-navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Perfil */
+.perfil {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://www.startechup.com/wp-content/uploads/markus-spiske-MI9-PY5cyNs-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+
+.saludo {
+    margin-bottom: 17px;
+}
+
+.profesion {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.download_cv {
+    padding: 25px;
+}
+
+.perfil::before { /*el ::before --> crea una capa sobre la imagen de fondo */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+}
+
+.perfil-info {
+    width: 42%;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    z-index: 1;
+}
+
+.perfil-foto {
+    width: 18%;
+    height: 41%;
+    z-index: 1;
+    margin: 0;
+    margin-left: 30px;
+}
+
+.imgperfil {
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 100%;
+}
+
+/* Información sobre mí */
+.informacion {
+    padding: 0 60px;
+    padding-top: 60px;
+}
+
+.Lenguajes {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    margin: 40px auto;
+}
+
+.imgLenguaje {
+    width: 60%;
+    height: 40%;
+    margin: auto;
+}
+
+.card {
+    height: 100%;
+    padding-top: 40px;
+    text-align: center;
+    margin: auto;
+}
+
+.Lenguajes :hover.card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.4s;
+}
+
+.Lenguajes :hover.imgLenguaje {
+    width: 57px;
+    height: 57px;
+    transition: 0.3s;
+}
+
+.card img {
+    width: 55px;
+    height: 55px;
+}
+
+.card-title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.descripcion_Mia {
+    text-align: justify;
+}
+
+.general {
+    display: grid;
+    /* grid-gap: 1rem; */
+    grid-template-columns: 70% 30%;
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .general {
+        grid-template-columns: 1fr;
+    }
+
+    .referencia img {
+        width: 40%;
+        margin: auto;
+    }
+}
+
+.personal {
+    width: 100%;
+}
+
+.referencia {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Servicios */
+.Servicios {
+    padding: 20px 60px;
+    margin: auto;
+}
+
+.Nombre-Serv {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.Descripcion-Serv {
+    font-size: 14.4px;
+}
+
+.Servicios-titulo,
+.Servicios-subtitulo {
+    margin-bottom: 30px;
+}
+
+.Servicios-Contenedor {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    grid-gap: 1rem;
+    margin: auto;
+}
+
+.Stretched {
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    text-align: justify;
+}
+
+.Stretched img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Proyectos */
+.Proyectos {
+    padding: 20px 60px;
+    margin: auto;
+}
+
+.ContenedorVideo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 0.1rem;
+    margin: auto;
+}
+
+.nombreProyecto,
+.figure-caption {
+    padding: 0 10px;
+}
+
+.contenedorImgProyectos {
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    height: 180px;
+}
+
+.contenedorImgProyectos:hover .overlay {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.btn-ver-video {
+    padding: 5px 8px;
+    background-color: rgb(45, 45, 45);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-video:hover {
+    color: rgb(126, 124, 193);
+}
+
+.contenedorImgProyectos .rounded {
+    width: 100%; /*320px*/
+    height: 170px;
+    transition: transform 0.3s ease;
+}
+
+.contenedorImgProyectos:hover .rounded {
+    transform: scale(1.05);
+}
+
+.figure {
+    width: 340px;
+    height: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px 8px;
+    margin: auto;
+}
+
+.nombreProyecto,
+.figure-caption {
+    padding: 0 10px;
+}
+
+/* Contacto */
+.Contacto {
+    padding: 20px 60px;
+    margin: auto;
+}
+
+.ContenedorLinks {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.linksA {
+    display: flex;
+    margin: 0 50px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    flex-direction: column;
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+@media (max-width: 991px) {
+    .custom-navbar .navbar-nav {
+        text-align: center;
+    }
+}
+
+/*Perfil - responsive */
+@media (max-width: 768px) {
+    .perfil {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .perfil-info {
+        width: 80%;
+        margin-top: 70px;
+        margin-bottom: 10px;
+    }
+
+    .perfil-foto {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .imgperfil {
+        width: 100%;
+        height: 100%;
+    }
+
+    .download_cv {
+        padding: 15px;
+    }
+}
+
+/* Sobre mí - response */
+@media (max-width: 768px) {
+    .general {
+        grid-template-columns: 1fr;
+    }
+
+    .referencia img {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+/* Lenguajes - response */
+@media (max-width: 768px) {
+    .Lenguajes {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Menor espacio para imágenes */
+    }
+}
+
+/* Servicios - response */
+@media (max-width: 768px) {
+    .Servicios-Contenedor {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    }
+
+    .Stretched {
+        padding: 10px;
+        width: 100%;
+    }
+}
+
+/* Proyectos - response*/
+@media (max-width: 768px) {
+    .ContenedorVideo {
+        grid-template-columns: 1fr;
+    }
+
+    .figure {
+        width: 100%;
+    }
+
+    .contenedorImgProyectos .rounded {
+        width: 100%;
+        height: 172px;
+    }
+}
+
+/* Contacto - response */
+@media (max-width: 768px) {
+    .ContenedorLinks {
+        flex-direction: column;
+        padding: 30px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .links {
+        margin-bottom: 20px;
+    }
+
+    .linksA {
+        margin: 10px 0;
+    }
+
+    .links img{
+        width: 170px;
+        height: 170px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 10px;
+    }
+}
