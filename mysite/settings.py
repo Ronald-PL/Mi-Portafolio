@@ -58,7 +58,9 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 # Database configuration (Usa dj_database_url para leer DATABASE_URL)
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'))
+    'default': dj_database_url.config(
+        default=f'sqlite:///{"tmp/db.sqlite3"}' if 'DATABASE_URL' not in os.environ else os.environ['DATABASE_URL']
+    )
 }
 
 # Password validation
