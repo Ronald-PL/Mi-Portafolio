@@ -1,0 +1,169 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+    <section id="inicio">
+        <div class="perfil">
+            <div class="perfil-info">
+                <h1 class="saludo">Hola 👋😊</h1>
+                <h1 class="saludo nombre">yo soy Ronald Pupuche Lizana</h1>
+                <span class="saludo profesion">Desarrollador Web y Escritorio</span>
+                <div class="download_cv">
+                    <a href="../static/curriculum/CvProfesional.pdf" target="_blank" class="btn btn-primary">
+                        Descargar CV
+                    </a>
+                </div>
+            </div>
+            <div class="perfil-foto">
+                <img class="imgperfil" src="{% static 'img/Perfil.jpg'%}" alt="Perfil">
+            </div>
+        </div>
+    </section>
+    
+    <section id="sobre-mi">
+        <div class="informacion">
+            <div class="general">
+                <div class="personal">
+                    <h2 style="padding-bottom: 30px ;">Sobre Mí</h2>
+                    <h5>¿Quién soy yo?</h5>
+                    <p class="descripcion_Mia">Soy un estudiante de Ingenieria en Computación e Informática que cursa el 10.º ciclo en la Universidad Nacional Pedro Ruiz Gallo, durante el trancurso de mi carrera e desarrollado habilidades de programación con lenguajes tales como c#, JavaScript, Php y Python, junto con frameworks de .Net, Laravel y Django, esta demas decir de html y css que son esenciales.</p>
+                    <p class="descripcion_Mia">Me encanta colaborar y trabajar en equipo, y estoy buscando un puesto de tiempo completo o parcial en desarrollador donde pueda mejorar mis conocimientos y habilidades para seguir mejorando</p>
+                </div>
+        
+                <div class="referencia">
+                    <img src="{% static 'img/referencia.png' %}" alt="referencia" width="100%">
+                </div>
+            </div>
+            
+            <h5 class="Titulo-Lenguajes">Lenguajes y Frameworks que manejo</h5>
+            <div class="Lenguajes">
+                {% for h in habilidades %}
+                <div class="card" style="width: 10rem;">
+                    <img class="imgLenguaje" src="{% static 'img/'%}{{h.Imagen}}" class="card-img-top" alt="{{h.Nombre}}">
+                    <div class="card-body">
+                    <h6 class="card-title">{{h.Nombre}}</h6>
+                      <p class="card-text">{{h.Decripcion}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="Servicios">
+        <div class="Servicios">
+            <h2 class="Servicios-titulo">Servicios</h2>
+            <h5 class="Servicios-subtitulo">Servicios que estoy dispuesto a hacer</h5>
+            <div class="Servicios-Contenedor">
+                {% for serv in servicios %}
+                    <div class="d-flex position-relative Stretched">
+                        <img src="{% static 'img/Servicios/'%}{{serv.Imagen}}" class="flex-shrink-0 me-3" alt="{{serv.Nombre}}">
+                        <div>
+                            <h5 class="mt-0 Nombre-Serv">{{serv.Nombre}}</h5>
+                            <p class="Descripcion-Serv">{{serv.Decripcion}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="Proyectos">
+        <div class="Proyectos">
+            <h2>Proyectos</h2>
+            <h5>Mis Proyectos</h5>
+            <div class="ContenedorVideo">
+                {% for pro in proyectos %}
+                    <figure class="figure">
+                        <h6 class="nombreProyecto">{{pro.Nombre}}</h6>
+                        <figcaption class="figure-caption">{{pro.Descripcion}}</figcaption>
+                        <div class="contenedorImgProyectos">
+                            <img src="{% static 'img/Proyectos/' %}{{pro.Imagen}}" class="figure-img img-fluid rounded" alt="{{pro.Nombre}}">
+                            <div class="overlay">
+                                <a href="#" class="btn-ver-video" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="{% static 'videos/' %}{{pro.Video_url}}">
+                                    <i class="bi bi-eye-fill"></i> Visualizar
+                                </a>
+                            </div>                            
+                        </div>
+                    </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <section id="Contacto">
+        <div class="Contacto">
+            <h2>Contacto</h2>
+            <div class="ContenedorLinks">
+                <div class="links">
+                    <a href="mailto:ronapupuche@gmail.com" class="linksA" target="_blank">
+                        <img src="../static/img/Gmail.png" alt="Gmail" />
+                        Gmail
+                    </a>
+                </div>
+    
+                <div class="links">
+                    <a href="https://www.linkedin.com/in/ronald-pupuche-5a48b1349" class="linksA" target="_blank">
+                        <img src="../static/img/Linkedin.png" alt="Gmail" />
+                        Linkedin
+                    </a>
+                </div>
+    
+                <div class="links">
+                    <a href="https://github.com/Ronald-PL" class="linksA" target="_blank">
+                        <img src="../static/img/Github.png" alt="Gmail" />
+                        Github
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Copyright © 2024 Ronald Pupuche Lizana.
+    </footer>
+</main>
+
+<!-- Modal del video visualizacion -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoModalLabel">Ver Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <video id="videoPlayer" controls width="100%">
+            <source id="videoSource" src="" type="video/mp4">
+            Algo salió mal 
+          </video>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var videoModal = document.getElementById('videoModal');
+        var videoSource = document.getElementById('videoSource');
+        var videoPlayer = document.getElementById('videoPlayer');
+
+        videoModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var videoUrl = button.getAttribute('data-video');
+            
+            videoSource.src = videoUrl;
+            videoPlayer.load();
+        });
+        
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+        });
+    });
+</script>
+  
+
+{% endblock %}
