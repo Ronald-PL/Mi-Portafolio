@@ -12,7 +12,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security settings
 SECRET_KEY = os.environ.get('SECRET_KEY', 'tu_clave_secreta_aqui')  # Cambiar por una variable de entorno en producción
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+ALLOWED_HOSTS = [
+    'portafolio-ronald-pupuche.herokuapp.com',
+    'portafolio-ronald-pupuche-ccc7a8030444.herokuapp.com',
+]
 
 # Application definition
 INSTALLED_APPS = [
