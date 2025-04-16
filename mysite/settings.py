@@ -17,6 +17,7 @@ ALLOWED_HOSTS = [
     'portafolio-ronald-pupuche-ccc7a8030444.herokuapp.com',
 ]
 
+
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",

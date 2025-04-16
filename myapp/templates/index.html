@@ -9,7 +9,7 @@
             <div class="perfil-info">
                 <h1 class="saludo">Hola 👋😊</h1>
                 <h1 class="saludo nombre">yo soy Ronald Pupuche Lizana</h1>
-                <span class="saludo profesion">Desarrollador Web y Escritorio</span>
+                <span class="saludo profesion">Desarrollador de Software</span>
                 <div class="download_cv">
                     <a href="../static/curriculum/Cv_Ronald Pupuche.pdf" target="_blank" class="btn btn-primary">
                         Descargar CV
@@ -163,6 +163,21 @@
             videoPlayer.currentTime = 0;
         });
     });
+
+    function reorderProfile() {
+    const perfilInfo = document.querySelector('.perfil-info');
+    const perfilFoto = document.querySelector('.perfil-foto');
+    
+    if (window.innerWidth <= 768) {
+        perfilFoto.parentNode.insertBefore(perfilFoto, perfilInfo);
+    } else {
+        perfilInfo.parentNode.insertBefore(perfilInfo, perfilFoto);
+    }
+    }
+
+    window.addEventListener('load', reorderProfile);
+    window.addEventListener('resize', reorderProfile);
+
 </script>
   
 
