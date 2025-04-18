@@ -2,6 +2,10 @@
     border: 1px solid red;
 } */
 
+*{
+    font-family: Source Sans Pro;
+}
+
 .custom-navbar {
     background: rgb(34, 34, 34);
     z-index: 2;
@@ -70,11 +74,16 @@
 }
 
 .imgperfil {
-    width: 100%;
-    height: 100%;
+    width: 500px;
+    max-width: 285px;
+    aspect-ratio: 1 / 1;
     border: 1px solid white;
     border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
 }
+
 
 /* Información sobre mí */
 .informacion {
@@ -96,6 +105,7 @@
 }
 
 .card {
+    width: 10rem;
     height: 100%;
     padding-top: 40px;
     text-align: center;
@@ -213,7 +223,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 0.1rem;
+    grid-gap: 2.5rem;
     margin: auto;
 }
 
@@ -322,10 +332,30 @@ footer {
     .custom-navbar .navbar-nav {
         text-align: center;
     }
+
+    .perfil {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .perfil-info {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    .perfil-foto {
+        width: 250px;
+        height: 270px;
+        margin: 0;
+        margin-top: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /*Perfil - responsive */
-@media (max-width: 768px) {
+@media (max-width: 530px) {
     .perfil {
         flex-direction: column;
         height: auto;
@@ -333,60 +363,99 @@ footer {
 
     .perfil-info {
         width: 80%;
-        margin-top: 25px;
+        margin: 0;
+        margin-top: 2px;
         margin-bottom: 10px;
     }
 
     .perfil-foto {
         width: 250px;
         height: 270px;
-        margin-top: 80px;
+        margin: 0;
+        margin-top: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .imgperfil {
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
+        margin: 0;
     }
 
     .download_cv {
         padding: 15px;
     }
+
+    .saludo{
+        font-size: 22px;
+    }
+
+    .informacion {
+        padding: 0 40px;
+        padding-top: 60px;
+    }
+
+    .card{
+        width: 8.5rem;
+    }
 }
 
 /* Sobre mí - response */
-@media (max-width: 768px) {
+@media (max-width: 530px) {
     .general {
         grid-template-columns: 1fr;
+        padding-bottom: 50px;
     }
 
     .referencia img {
-        width: 50%;
+        width: 100%;
         margin: 0 auto;
     }
 }
 
 /* Lenguajes - response */
-@media (max-width: 768px) {
+@media (max-width: 530px) {
     .Lenguajes {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Menor espacio para imágenes */
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 }
 
-/* Servicios - response */
-@media (max-width: 768px) {
+@media (max-width: 530px) {
+
+    /*SECCION DE SERVICIOS*/
+    .Servicios{
+        padding: 40px;
+    }
+
     .Servicios-Contenedor {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     }
 
     .Stretched {
         padding: 10px;
-        padding-right: 50px;
+        padding-right: 25px;
         width: 100%;
     }
-}
 
-/* Proyectos - response*/
-@media (max-width: 768px) {
+    .Nombre-Serv{
+        font-size: 16px;
+    }
+
+    .Descripcion-Serv{
+        font-size: 13px;
+    }
+
+    .Servicios-subtitulo{
+        font-size: 17px;
+    }
+
+    /*SECCION DE PROYECTOS*/
+    .Proyectos{
+        padding: 40px;
+    }
+
     .ContenedorVideo {
         grid-template-columns: 1fr;
     }
@@ -399,10 +468,7 @@ footer {
         width: 100%;
         height: 172px;
     }
-}
-
-/* Contacto - response */
-@media (max-width: 768px) {
+    /*SECCION DE CONTACTO*/
     .ContenedorLinks {
         flex-direction: column;
         padding: 30px;
@@ -423,9 +489,7 @@ footer {
         height: 170px;
         margin: auto;
     }
-}
-
-@media (max-width: 768px) {
+    /*FOOTER*/
     footer {
         padding: 10px;
     }

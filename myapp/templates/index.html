@@ -40,7 +40,7 @@
             <h5 class="Titulo-Lenguajes">Lenguajes y Frameworks que manejo</h5>
             <div class="Lenguajes">
                 {% for h in habilidades %}
-                <div class="card" style="width: 10rem;">
+                <div class="card">
                     <img class="imgLenguaje" src="{% static 'img/'%}{{h.Imagen}}" class="card-img-top" alt="{{h.Nombre}}">
                     <div class="card-body">
                     <h6 class="card-title">{{h.Nombre}}</h6>
@@ -168,7 +168,7 @@
     const perfilInfo = document.querySelector('.perfil-info');
     const perfilFoto = document.querySelector('.perfil-foto');
     
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 990) {
         perfilFoto.parentNode.insertBefore(perfilFoto, perfilInfo);
     } else {
         perfilInfo.parentNode.insertBefore(perfilInfo, perfilFoto);
